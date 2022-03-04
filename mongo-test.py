@@ -1,15 +1,11 @@
 import pymongo
-MONGO_USER=""
-MONGO_PASSWORD=""
-MONGO_HOST=""
-MONGO_PORT=
+from decouple import config
 
-mongo_url="mongodb://babble:56e0af34-86b3-4775-81f1-b07ced38f812@10.90.1.86:27017/?authSource=admin"
+mongo_url=config('MONGO_URL')
 
 try:
-    client = pymongo.MongoClient(config.mongo_url)
+    client = pymongo.MongoClient(mongo_url)
     client.admin.command('ismaster')
-    print("Successfully connected to mongodb")
-    return True
+    print("mongodb connection successfully established")
 except:
     print("Unable to connect to Mongodb")
