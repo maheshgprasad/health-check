@@ -9,3 +9,12 @@ Modules-Used
 - Redis:    https://github.com/redis/redis-py
 #
 ENV:      https://github.com/henriquebastos/python-decouple
+
+# To Install the Requirements 
+
+/> python3 -m pip install -r requirements.txt
+
+# How to Use
+- copy .env-sample to .env
+- populate .env with the necessary values
+- run individual scripts or run the shell script to execute all
