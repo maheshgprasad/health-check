@@ -1,2 +1,2 @@
 # health-check
-Health check for  Redis, Rabbit-MQ and MongoDB
+Health check for  Redis, Rabbit-MQ, MySQL and MongoDB
