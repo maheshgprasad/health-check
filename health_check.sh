@@ -20,6 +20,15 @@ sleep 30s
 continue
 fi
 
+if python3 mysql-test.py | grep -q 'mysql connection successfully established';
+then
+echo -e "\e[32m MySQL-DB ACTIVE \e[0m"
+else
+echo -e "\e[32m MySQL-DB NOT ACTIVE \e[0m"
+sleep 30s
+continue
+fi
+
 if python3 rabbit-test.py | grep -q 'rabbit-mq connection successfully established';
 then
 echo -e "\e[32m RABBIT-MQ ACTIVE \e[0m"
