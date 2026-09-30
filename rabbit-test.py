@@ -1,19 +1,7 @@
-import pika
-from decouple import config
-RABBIT_HOST=config('RABBIT_HOST')
-RABBIT_PORT=config('RABBIT_PORT')
-RABBIT_USERNAME=config('RABBIT_USERNAME')
-RABBIT_PASSWORD=config('RABBIT_PASSWORD')
+#!/usr/bin/env python3
+import sys
 
-credentials = pika.PlainCredentials(RABBIT_USERNAME, RABBIT_PASSWORD)
-parameters = pika.ConnectionParameters(host=RABBIT_HOST, port=RABBIT_PORT, virtual_host='/',credentials=credentials)
+from healthcheck.cli import main
 
-try:
-  connection = pika.BlockingConnection(parameters)
-  if connection.is_open:
-    print('rabbit-mq connection successfully established')
-    connection.close()
-    exit(0)
-except Exception as error:
-  print('Error:', error.__class__.__name__)
-  exit(1)
+if __name__ == "__main__":
+    sys.exit(main(["--only", "rabbitmq", *sys.argv[1:]]))
