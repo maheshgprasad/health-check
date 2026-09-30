@@ -1,5 +1,5 @@
-redis
-pymongo
-pika
-python-decouple
-mysql-connector-python
+redis>=4.2
+pymongo>=4
+pika>=1.2
+python-decouple>=3.6
+mysql-connector-python>=8
